@@ -1,0 +1,24 @@
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+
+model = Sequential([
+    Conv2D(16, (3,3), activation='relu', padding='same', input_shape=(128,128,3)),
+    MaxPooling2D(),
+    Conv2D(32, (2,2), activation='relu', padding='same'),
+    MaxPooling2D(),
+    Conv2D(64, (2,2), activation='relu', padding='same'),
+    MaxPooling2D(),
+    Conv2D(128, (2,2), activation='relu', padding='same'),
+    MaxPooling2D(),
+    Flatten(),
+    Dropout(0.2),
+    Dense(500, activation='relu'),
+    Dense(150, activation='relu'),
+    Dense(23, activation='softmax')  # adjust class count
+])
+
+
+link to download the model:
+
+[drive link to the model](https://drive.google.com/drive/u/0/home)
+change the file path in line no. 97(eg: path ='C:/Users/User/Downloads/cnn.hdf5') don't forget to replace backward slash ('\')  with forward slash ('/')
